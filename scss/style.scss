@@ -1,0 +1,963 @@
+// 必ず入れる
+/*
+Theme Name: manmaru nursery school
+Theme URI: テーマのURL
+Author:作者名/会社名
+Author URI: 作者/会社のURL
+Description: テーマの説明
+Version: テーマのバージョン
+*/
+@charset "utf-8";
+
+@use "normalize";
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background-color: #f9f9f9;
+  color: #4d361f;
+}
+
+// ヘッダーのこと
+header {
+  background-color: #f5deb3;
+}
+
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  h1 {
+    margin: 0;
+    padding: 10px;
+  }
+
+  a {
+    display: block;
+    color: #4d361f;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+  }
+}
+
+// モバイル用ナビゲーション
+.navbtn {
+  // ボタンのこと
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  width: 60px;
+  height: 50px;
+  padding: 5px 0;
+
+  // 三本線のこと
+  span {
+    display: block;
+    margin: 10px;
+    border-bottom: 4px solid #4d361f;
+    border-radius: 4px; /* 線の丸み */
+  }
+
+  // 1本目の線の動きのこと
+  .trigger:nth-child(1) {
+    transform: translateY(15px) rotate(-45deg);
+  }
+
+  // 2本目の線の動きのこと
+  .trigger:nth-child(2) {
+    opacity: 0;
+  }
+
+  // 3本目の線の動きのこと
+  .trigger:nth-child(3) {
+    transform: translateY(-13px) rotate(45deg);
+  }
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// ナビゲーション
+.nav-menu ul {
+  display: none;
+  position: absolute; /* 三本線クリック後のこと？ */
+  top: 72px;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  background-color: rgba(245, 222, 179, 0.8); /* クリック後に出るメニュー文字の背景 */
+
+  // メニューの一覧のこと
+  li {
+    list-style: none;
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #4d361f;
+    font-weight: bold;
+    &:hover {
+      color: #805840;
+    }
+  }
+  
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: none;
+  }
+}
+
+main {
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+}
+
+// トップページのコンテンツの幅
+.news-blog-container, .about-container {
+  padding: 50px 4% 0;
+}
+
+// トップページのメインの写真のこと
+.main-visual-container {
+
+  .main-visual {
+    img {
+      margin: 0 auto;
+      width: 100%;
+      vertical-align: middle;
+
+      // 768px以上の画面のとき
+      @media (min-width: 768px) {
+        height: 650px;
+      }
+    }
+  }
+}
+
+// トップページに表示されるお知らせとブログが入っている箱のこと
+.news-blog-container {
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  // お知らせの箱と園の様子の箱のこと
+  .news-container, .blog-container {
+    width: 100%;
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 0;
+      padding: 20px 0 50px;
+    }
+
+    li {
+      list-style: none;
+      margin: 0 0 15px;
+      padding: 0 0 0 20px;
+      border-left: 3px solid brown;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: #4d361f;
+      padding: 10px 0 0;
+      &:hover {
+        color: #805840;
+      }
+    }
+
+    // お知らせとブログの日付、タイトルの箱
+    .news-content, .blog-content {
+      margin: 0;
+      padding: 0;
+    }
+
+    // 一覧を見るのボタンのこと
+    .content-btn {
+      padding: 30px 0 20px;
+      text-align: right;
+
+      @media (min-width: 768px) {
+        padding: 30px 30px 20px 0;
+      }
+
+      a {
+        &:hover {
+          color: #805840;
+        }
+      }
+    }
+  }
+}
+
+// 間に置いている写真のこと
+.line {
+  margin: 0 auto;
+  width: 150px;
+
+  img {
+    width: 100%;
+    padding: 80px 0 30px;
+  }
+}
+
+// トップページのこんな保育園です！の箱
+.about-container {
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0 50px;
+  }
+
+  // 詳しく見るのボタンのこと
+  .content-btn {
+    padding: 20px 0;
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: #4d361f;
+      &:hover {
+        color: #805840;
+      }
+    }
+  }
+
+  // 3つの項目が入っている箱のこと
+  .about-box {
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;  
+    }
+
+    // 写真と文字が入っている箱のこと
+    .about-item {
+      padding: 20px;
+
+      // 768px以上の画面のとき
+      @media (min-width: 768px) {
+      width: calc(100%/3);
+      padding: 20px;
+      box-sizing: border-box;
+      }
+
+      // 写真のこと
+      .about-img {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      }
+
+      // 文字のこと
+      p {
+        margin: 0;
+        padding: 15px 0 10px;
+      }
+    }
+  }
+}
+
+// トップページの保育園での生活の箱
+.life-container {
+  padding: 50px 4% 50px;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0 50px;
+  }
+
+  // 詳しく見るのボタンのこと
+  .content-btn {
+    padding: 20px 0;
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: #4d361f;
+      &:hover {
+        color: #805840;
+      }
+    }
+  }
+
+  // 4つの項目が入っている箱のこと
+  .life-box {
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;  
+    }
+
+    // 写真と文字が入っている箱のこと
+    .life-item {
+      padding: 20px;
+
+      // 768px以上の画面のとき
+      @media (min-width: 768px) {
+      width: calc(100%/4);
+      padding: 20px;
+      box-sizing: border-box;
+      }
+
+      // 写真のこと
+      .life-img {
+      width: 100%;
+      border-radius: 20px;
+      }
+
+      // 文字のこと
+      p {
+        text-align: center;
+        margin: 0;
+        padding: 15px 0 10px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// お知らせ、園の様子の記事ページのこと
+.single-container {
+  padding: 50px 10% 50px;
+
+  // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 10%;
+    }
+
+  hr {
+      margin: 10px 0;
+      padding: 0;
+      border: 1px dashed gray;
+  }
+
+  .single {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 28px;
+    }
+
+    time, .category-name {
+      font-size: 12px;
+    }
+  }
+
+  .single-content {
+    padding: 20px 0 20px;
+    p {
+      margin: 0;
+      padding: 0 0 40px;
+      font-size: 14px;
+    }
+    
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;  
+    }
+  }
+
+  .wp-block-image, .size-full {
+    padding: 10px 0;
+    margin: 0;
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+    width: calc(100%/3);
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    }
+  }
+}
+
+// アーカイブページ（記事一覧）のこと
+.archive-container {
+  padding: 50px 10% 50px;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 40px 10% 40px;
+  }
+
+  // 一覧ページのタイトルのこと
+  .archive-title {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 28px;
+    }
+  }
+  
+  hr {
+    margin: 10px 0;
+    padding: 0;
+    border: 1px dashed gray;
+  }
+
+  // 投稿日と記事タイトルが入っている箱のこと
+  .archive {
+    padding: 10px 0 0;
+
+    // 投稿日と記事タイトルのこと
+    .archive-content {
+      padding: 10px 0;
+    }
+  }
+
+  // ページネーションのこと
+  .nav-links {
+    text-align: center;
+    padding: 20px 0 0;
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+}
+
+// こんな保育園です！の詳しいページのこと
+.school-container {
+  padding: 50px 10% 50px;
+
+  // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 40px 10% 40px;
+    }
+
+  hr {
+      margin: 10px 0;
+      padding: 0;
+      border: 1px dashed gray;
+  }
+
+  .school {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 20px 0 10px;
+      font-size: 28px;
+    }
+  }
+
+  // 保育理念、園の特徴の箱
+  .school-content {
+    padding: 10px 0 0;
+    
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .school-box {
+      padding: 30px 10px;
+
+      @media (min-width: 768px) {
+        padding: 30px 10px 0;
+      }
+
+      h2 {
+      text-align: center;
+      margin: 0;
+      padding: 0 0 30px;
+      }
+
+      .school-item {
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style: none;
+          padding: 0 0 10px;
+        }
+      }
+    }
+  }   
+
+  // 給食についての箱
+  .school-content2 {
+    h2 {
+      text-align: center;
+      margin: 0;
+      padding: 50px 0;
+    }
+
+    .school-meal {
+      padding: 0 0 10px;
+
+      h3 {
+        margin: 0;
+        padding: 0 0 20px;
+      }
+
+      p {
+        margin: 0;
+        padding: 0 0 10px;
+      }
+    }
+  }
+}
+
+// 保育園での生活の詳しいページのこと
+.nursery-life-container {
+  padding: 50px 10% 50px;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 40px 10% 40px;
+  }
+
+  hr {
+    margin: 10px 0;
+    padding: 0;
+    border: 1px dashed gray;
+  }
+
+  .life {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 28px;
+    }
+  }
+
+  // 年間行事の箱のこと
+  .life-content {
+    padding: 0px 0 20px;
+    h2 {
+      text-align: center;
+      margin: 0;
+      padding: 40px 0px 50px;
+    }
+
+    // 春夏秋冬の箱のこと
+    .season-container {
+
+      // 768px以上の画面のとき
+      @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      // 春と秋のこと
+      .season-content1, .season-content3 {
+        padding: 10px 0 10px;
+
+        @media (min-width: 768px) {
+          width: calc(100%/2);
+          padding: 5px 50px 5px 5px;
+          border-right: 1px solid gray;
+          box-sizing: border-box;
+        }
+      }
+
+      // 夏と冬のこと
+      .season-content2, .season-content4 {
+        padding: 10px 0 10px;
+
+        @media (min-width: 768px) {
+          width: calc(100%/2);
+          padding: 5px 5px 5px 50px;
+          box-sizing: border-box;
+        }
+      }
+
+      // 春
+      .season1 {
+        p {
+          font-size: 20px;
+          border-radius: 50px;
+          background-color: #ffb6c1;
+          width: 40px;
+          height: 40px;
+          color: #fffafa;
+          text-align: center;
+          line-height: 40px;
+          margin: 0;
+        }
+      }
+
+      // 夏
+      .season2 {
+        p {
+          font-size: 20px;
+          border-radius: 50px;
+          background-color: #00ff7f;
+          width: 40px;
+          height: 40px;
+          color: #fffafa;
+          text-align: center;
+          line-height: 40px;
+          margin: 0;
+        }
+      }
+
+      // 秋
+      .season3 {
+        p {
+          font-size: 20px;
+          border-radius: 50px;
+          background-color: #d2691e;
+          width: 40px;
+          height: 40px;
+          color: #fffafa;
+          text-align: center;
+          line-height: 40px;
+          margin: 0;
+        }
+      }
+
+      // 冬
+      .season4 {
+        p {
+          font-size: 20px;
+          border-radius: 50px;
+          background-color: #6495ed;
+          width: 40px;
+          height: 40px;
+          color: #fffafa;
+          text-align: center;
+          line-height: 40px;
+          margin: 0;
+        }
+      }
+
+      // 行事内容の項目のこと
+      ul {
+        margin: 0;
+        padding: 20px;
+
+        li {
+          list-style: none;
+          padding-left: 20px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+
+  // 園の１日の箱のこと
+  // 登園とお迎えの文字のこと
+  .center {
+    text-align: center;
+  }
+  
+  // 時間と活動の箱のこと
+  .day-container, dl {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+
+    dt {
+      width: 50%;
+      margin: 10px 0;
+    }
+
+    dd {
+      width: 50%;
+      margin: 10px 0;
+    }
+
+    dd::before {
+      content: "|";
+      color: brown;
+      font-weight: bold;
+      display: block;
+      position: absolute;
+      left: 49%;
+    }
+  }  
+}
+
+// 入園案内の詳しいページのこと
+.nursery-guide-container {
+  padding: 50px 10% 50px;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 40px 10% 40px;
+  }
+
+  hr {
+    margin: 10px 0;
+    padding: 0;
+    border: 1px dashed gray;
+  }
+
+  .guide {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 28px;
+    }
+  }
+
+  // 保育料についての箱のこと
+  .guide-content {
+    padding: 0;
+
+    h2 {
+      text-align: center;
+      margin: 0;
+      padding: 40px 0px 50px;
+    }
+
+    .guide-box {
+      dl {
+        margin: 0;
+        padding: 0 0 40px;
+
+        dt {
+          font-weight: bold;
+        }
+
+        dd {
+          margin: 0 0 0 80px;
+          padding: 20px 0 0;
+        }
+      }
+      
+      // 768px以上の画面のとき　  
+      @media (min-width: 768px) {
+        display: flex;
+
+        dl {
+          width: 50%;
+          padding: 0 20px 40px;
+        }
+      }
+    }
+    
+    .guide-p {
+      padding: 20px 0 0;
+
+      p {
+      margin: 0;
+      padding: 10px 0;
+      }
+    }
+  }
+}
+
+// 固定ページ
+.page-container {
+  padding: 50px 10% 0;
+  background-color: #fffafa;
+
+  // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 20px 10% 10%;
+    }
+
+  hr {
+      margin: 10px 0;
+      padding: 0;
+      border: 1px dashed gray;
+  }
+
+  .page {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 20px 0 10px;
+      font-size: 28px;
+    }
+
+    time, .new {
+      font-size: 12px;
+    }
+  }
+
+  .page-content {
+    padding: 20px 0 20px;
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+.content-btn {
+  padding: 30px 0;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+// 採用情報のページのこと
+.recruit-container {
+  padding: 50px 10% 0;
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px 10% 10%;
+  }
+
+  hr {
+      margin: 10px 0;
+      padding: 0;
+      border: 1px dashed gray;
+  }
+
+  .recruit {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 28px;
+    }
+
+    time, .new {
+      font-size: 12px;
+    }
+  }
+
+  .recruit-content {
+    h4 {
+      margin: 0;
+      padding: 10px 0 0;
+    }
+
+    dl {
+    margin: 0;
+    padding: 10px 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+    dt {
+      width: 100%;
+      padding: 20px 0;
+      background-color: #f5deb3;
+      margin: 0 0 10px 0;
+
+      p {
+        margin: 0;
+        padding: 0 0 0 10px;
+        font-weight: bold;
+      }
+    }
+
+    dd {
+      width: 100%;
+      padding: 20px 0;
+      background-color: #fffafa;
+      margin: 0 0 10px 0;
+
+      p {
+        margin: 0;
+        padding: 0 30px 0 30px;
+      }
+    }
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      dl {
+        width: 100%;
+      }
+
+      dt {
+        width: 30%;
+        margin: 10px 0;
+      }
+
+      dd {
+        width: 70%;
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+// フッターのこと
+footer {
+  background-color: #f5deb3;
+}
+
+.footer-container {
+  padding: 30px 0 30px;
+
+  .address {
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      padding: 20px 0 15px;
+    }
+
+    p {
+      margin: 0;
+      padding: 0 0 5px;
+    }
+  
+    a {
+      text-decoration: none;
+      color: #4d361f;
+      &:hover {
+        color: #805840;
+      }
+    }
+  }
+}
